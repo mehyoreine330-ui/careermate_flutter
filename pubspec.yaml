@@ -1,0 +1,92 @@
+name: careermate_flutter
+description: CareerMate — AI-powered career coach client (Flutter Web/iOS/Android).
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  # Raised from 3.22.0: the design-system widgets (glass_card, glow_button,
+  # sleek_text_field, app_background, task_tile, etc.) use Color.withValues(),
+  # which only exists from Flutter 3.27 onward. Declaring the real floor here
+  # turns "withValues isn't defined" (a confusing error scattered across a
+  # dozen widget files) into one clear "current Flutter SDK doesn't satisfy
+  # pubspec" message from `flutter pub get` if the SDK is actually older.
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Localization (18-language support — see lib/l10n/).
+  # Pinned to match the exact version flutter_localizations requires from
+  # this Flutter SDK (see pub's "intl is pinned to version..." resolution
+  # error otherwise).
+  intl: ^0.20.2
+
+  # State management
+  flutter_riverpod: ^2.5.1
+
+  # Auth + backend DB (JWT source of truth)
+  supabase_flutter: ^2.5.6
+
+  # REST calls to FastAPI
+  http: ^1.2.1
+  http_parser: ^4.0.2
+
+  # Mock interview audio pipeline
+  web_socket_channel: ^2.4.0
+  record: ^5.2.1
+  just_audio: ^0.9.40
+  path_provider: ^2.1.3
+
+  # Resume upload
+  file_picker: ^8.0.0+1
+
+  # Client-side ids (placeholder until backend issues interview ids)
+  uuid: ^4.4.0
+
+  cupertino_icons: ^1.0.6
+
+  # Design system (dark glassmorphic UI)
+  google_fonts: ^6.2.1
+
+  # Contact Us (mailto: link) and About (external website/store links)
+  url_launcher: ^6.3.0
+
+  # About screen's real app version (from this file, not hardcoded)
+  package_info_plus: ^8.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+# Pinned to eliminate the record_web / record_platform_interface web build
+# failure (record_web implementing a stale hasPermission() signature against
+# a newer record_platform_interface).
+#
+# Root cause: record 5.1.2 declares `record_web: ^1.0.4`, a floor low enough
+# for pub to resolve record_web down to 1.0.4/1.0.5 — versions built against
+# the OLD record_platform_interface ^1.0.2 API — while record's own
+# `record_platform_interface: ^1.1.0` constraint forces the interface package
+# to 1.1.0+, which changed method signatures without a major version bump.
+# record_web 1.0.4 no longer satisfies that newer abstract class -> compile
+# error on `flutter run -d chrome` / `flutter build web`.
+#
+# Fix: record 5.2.1 raised its own floors to `record_web: ^1.1.5` and
+# `record_platform_interface: ^1.2.0` (a matched pair released the same day
+# by the package maintainer), which already resolves this. The overrides
+# below pin that exact matched trio so pub's solver can't drift to a newer
+# record_web/record_platform_interface combination that reintroduces the
+# same class of mismatch. No app code changes needed — record's public API
+# (AudioRecorder, RecordConfig, hasPermission/start/stop) is unchanged
+# between 5.1.x and 5.2.x.
+dependency_overrides:
+  record_web: 1.1.5
+  record_platform_interface: 1.2.0
+
+flutter:
+  uses-material-design: true
+  generate: true

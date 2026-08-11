@@ -1,0 +1,7 @@
+{
+  "_comment": "Copy to env/production.json (already gitignored — never commit the real file). Fill in real values, then build with --dart-define-from-file=env/production.json. See DEPLOYMENT_GUIDE.md.",
+  "API_BASE_URL": "https://api.careermate.com",
+  "WS_BASE_URL": "wss://api.careermate.com",
+  "SUPABASE_URL": "https://your-project.supabase.co",
+  "SUPABASE_ANON_KEY": "your_supabase_publishable_key"
+}

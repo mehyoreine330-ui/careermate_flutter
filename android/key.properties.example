@@ -1,0 +1,17 @@
+# Copy this file to android/key.properties (which is already gitignored —
+# never commit the real file or your keystore) and fill in your own values.
+#
+# Generate your own upload keystore first (do this once, keep the file and
+# passwords somewhere safe — losing it means you can never update your app
+# on Google Play again under the same listing):
+#
+#   keytool -genkey -v -keystore upload-keystore.jks -storetype JKS \
+#     -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+#
+# Then place upload-keystore.jks in android/app/ (or update storeFile below
+# to point wherever you keep it) and fill in the real passwords you chose.
+
+storePassword=REPLACE_WITH_YOUR_KEYSTORE_PASSWORD
+keyPassword=REPLACE_WITH_YOUR_KEY_PASSWORD
+keyAlias=upload
+storeFile=upload-keystore.jks
