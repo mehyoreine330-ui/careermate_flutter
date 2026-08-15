@@ -34,6 +34,32 @@ class AppConfig {
     defaultValue: 'sb_publishable_FVNUeh7AGw0P3DPwNrmPoA_rin14_u-',
   );
 
+  /// The base URL this app is *currently actually running from* — origin
+  /// **and** path, e.g. `https://user.github.io/repo/` on a GitHub Pages
+  /// project subpath, or `http://localhost:8090/` under `flutter run`.
+  ///
+  /// Deliberately derived from `Uri.base` rather than hardcoded to any one
+  /// environment: this app has no path-based routing (imperative
+  /// Navigator.push only), so the browser's address bar never changes
+  /// after the initial load, which means `Uri.base` reliably reflects
+  /// "wherever this page was loaded from" for the whole session. That
+  /// makes this correct in dev and prod alike with zero config — no
+  /// --dart-define, no environment check needed.
+  ///
+  /// Use this (not `Uri.base.origin` alone) for anything that must survive
+  /// a round trip back into the app, e.g. Supabase's password-reset
+  /// `redirectTo`: `.origin` drops the path, so on a GitHub Pages project
+  /// subpath it round-trips to the bare domain root instead of back into
+  /// the app — nothing is hosted there, so that 404s (or, if Supabase's
+  /// dashboard "Site URL" is still its own `localhost` default and this
+  /// URL isn't in its allowed Redirect URLs list, Supabase silently
+  /// ignores it and falls back to that `localhost` default instead).
+  static String get appBaseUrl {
+    final uri = Uri.base;
+    final path = uri.path.endsWith('/') ? uri.path : '${uri.path}/';
+    return Uri(scheme: uri.scheme, host: uri.host, port: uri.port, path: path).toString();
+  }
+
   /// Fails loudly at startup if Supabase credentials weren't provided,
   /// instead of silently initializing with an empty URL — which makes every
   /// auth call (sign up, sign in) fire against a relative path with no real

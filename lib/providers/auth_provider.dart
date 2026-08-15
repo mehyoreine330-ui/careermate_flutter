@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../core/app_config.dart';
+
 /// The Supabase client is the single source of truth for identity —
 /// FastAPI never issues or validates sessions itself, it just verifies
 /// the token Supabase already signed. Everything auth-related in the
@@ -77,17 +79,22 @@ class AuthController extends AsyncNotifier<void> {
   }
 
   /// Sends a password-reset email via Supabase Auth's built-in flow. The
-  /// link redirects back to this app's own origin (Flutter Web only for
+  /// link redirects back to wherever this app is actually running —
+  /// AppConfig.appBaseUrl, not just Uri.base.origin, so this round-trips
+  /// correctly on a GitHub Pages project subpath too (Flutter Web only for
   /// now — a native build needs a registered deep-link scheme, which isn't
-  /// configured yet), where onAuthStateChange fires
+  /// configured yet). On arrival, onAuthStateChange fires
   /// AuthChangeEvent.passwordRecovery and app.dart's _AuthGate shows
-  /// ResetPasswordScreen.
+  /// ResetPasswordScreen — this requires the target URL to also be listed
+  /// in Supabase Dashboard -> Authentication -> URL Configuration ->
+  /// Redirect URLs, or Supabase silently ignores it and falls back to the
+  /// dashboard's default Site URL instead.
   Future<void> sendPasswordResetEmail(String email) async {
     state = const AsyncLoading();
     state = await AsyncValue.guard(() async {
       await ref.read(supabaseClientProvider).auth.resetPasswordForEmail(
             email,
-            redirectTo: Uri.base.origin,
+            redirectTo: AppConfig.appBaseUrl,
           );
     });
   }
