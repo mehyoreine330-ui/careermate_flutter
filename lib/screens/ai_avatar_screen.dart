@@ -46,7 +46,13 @@ class _AiAvatarContentState extends State<AiAvatarContent> {
                 onTap: () => setState(() => _mode = _AvatarMode.hub),
               ),
               const SizedBox(width: 14),
-              Text('AI Avatar — Coaching Session', style: Theme.of(context).textTheme.titleLarge),
+              Expanded(
+                child: Text(
+                  'AI Avatar — Coaching Session',
+                  style: Theme.of(context).textTheme.titleLarge,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 16),

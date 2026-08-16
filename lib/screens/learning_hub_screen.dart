@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../core/responsive.dart';
 import '../theme/app_colors.dart';
 import '../widgets/fade_in.dart';
 import '../widgets/glass_card.dart';
 import '../widgets/pill_tag.dart';
+import '../widgets/responsive_card_grid.dart';
 
 /// A resource (course, certification, tool) with a real, working URL —
 /// curated, not backend-driven. There is no learning-content API in this
@@ -141,7 +141,6 @@ class _LearningHubContentState extends State<LearningHubContent> {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = Responsive.isDesktop(context);
     return SingleChildScrollView(
       child: FadeSlideIn(
         child: Column(
@@ -155,18 +154,20 @@ class _LearningHubContentState extends State<LearningHubContent> {
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const SizedBox(height: 20),
-            for (final category in _categories) ...[
-              _CategoryCard(
-                category: category,
-                isDesktop: isDesktop,
-                started: _started,
-                onToggleStarted: (key) => setState(() {
-                  _started.contains(key) ? _started.remove(key) : _started.add(key);
-                }),
-                onOpen: _openResource,
-              ),
-              const SizedBox(height: 16),
-            ],
+            ResponsiveCardGrid(
+              columnsForWidth: (w) => w >= 900 ? 2 : 1,
+              cards: [
+                for (final category in _categories)
+                  _CategoryCard(
+                    category: category,
+                    started: _started,
+                    onToggleStarted: (key) => setState(() {
+                      _started.contains(key) ? _started.remove(key) : _started.add(key);
+                    }),
+                    onOpen: _openResource,
+                  ),
+              ],
+            ),
           ],
         ),
       ),
@@ -177,14 +178,12 @@ class _LearningHubContentState extends State<LearningHubContent> {
 class _CategoryCard extends StatelessWidget {
   const _CategoryCard({
     required this.category,
-    required this.isDesktop,
     required this.started,
     required this.onToggleStarted,
     required this.onOpen,
   });
 
   final _LearningCategory category;
-  final bool isDesktop;
   final Set<String> started;
   final void Function(String key) onToggleStarted;
   final void Function(_Resource resource) onOpen;
