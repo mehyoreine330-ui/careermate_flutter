@@ -11,13 +11,14 @@ import '../widgets/fade_in.dart';
 import '../widgets/icon_glow_button.dart';
 import '../widgets/notification_bell_button.dart';
 import '../widgets/sidebar_nav.dart';
+import 'ai_avatar_screen.dart';
 import 'career_coach_screen.dart';
 import 'career_report_screen.dart';
 import 'career_roadmap_screen.dart';
-import 'coming_soon_screen.dart';
 import 'dashboard_home_content.dart';
 import 'internships_screen.dart';
 import 'job_matching_screen.dart';
+import 'learning_hub_screen.dart';
 import 'mock_interview_screen.dart';
 import 'profile_screen.dart';
 import 'resume_analyzer_screen.dart';
@@ -76,7 +77,6 @@ class _AppShellScreenState extends ConsumerState<AppShellScreen> {
   }
 
   Widget _contentFor(String key) {
-    final l10n = AppLocalizations.of(context);
     switch (key) {
       case 'dashboard':
         return DashboardHomeContent(
@@ -90,17 +90,9 @@ class _AppShellScreenState extends ConsumerState<AppShellScreen> {
       case 'ai_career_coach':
         return const AiCareerCoachContent();
       case 'learning_hub':
-        return ComingSoonContent(
-          icon: Icons.menu_book_outlined,
-          title: l10n.learningHubTitle,
-          description: l10n.learningHubDescription,
-        );
+        return const LearningHubContent();
       case 'ai_avatar':
-        return ComingSoonContent(
-          icon: Icons.face_retouching_natural_rounded,
-          title: l10n.aiAvatarTitle,
-          description: l10n.aiAvatarDescription,
-        );
+        return const AiAvatarContent();
       case 'profile':
         return const ProfileContent();
       case 'settings':

@@ -38,3 +38,40 @@ class InterviewTurnResponse {
         isInterviewComplete: json['is_interview_complete'] as bool? ?? false,
       );
 }
+
+/// One answered (or skipped) question in the text mock-interview flow.
+/// Mirrors models.schemas.InterviewAnswer on the FastAPI side.
+class InterviewAnswer {
+  const InterviewAnswer({required this.question, required this.answer});
+
+  final String question;
+  final String answer;
+
+  Map<String, dynamic> toJson() => {'question': question, 'answer': answer};
+}
+
+/// Result of POST /api/v1/interviews/text/evaluate — mirrors
+/// models.schemas.InterviewEvaluationResult.
+class InterviewEvaluationResult {
+  const InterviewEvaluationResult({
+    required this.overallScore,
+    required this.strengths,
+    required this.weaknesses,
+    required this.communicationFeedback,
+    required this.improvementSuggestions,
+  });
+
+  final int overallScore;
+  final List<String> strengths;
+  final List<String> weaknesses;
+  final String communicationFeedback;
+  final List<String> improvementSuggestions;
+
+  factory InterviewEvaluationResult.fromJson(Map<String, dynamic> json) => InterviewEvaluationResult(
+        overallScore: json['overall_score'] as int,
+        strengths: (json['strengths'] as List).cast<String>(),
+        weaknesses: (json['weaknesses'] as List).cast<String>(),
+        communicationFeedback: json['communication_feedback'] as String,
+        improvementSuggestions: (json['improvement_suggestions'] as List).cast<String>(),
+      );
+}

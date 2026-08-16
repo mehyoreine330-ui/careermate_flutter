@@ -12,6 +12,7 @@ import '../models/career_coach_models.dart';
 import '../models/career_report_models.dart';
 import '../models/career_roadmap_models.dart';
 import '../models/employer_models.dart';
+import '../models/interview_models.dart';
 import '../models/job_matching_models.dart';
 import '../models/opportunity_models.dart';
 import '../models/onboarding_chat_models.dart';
@@ -404,6 +405,51 @@ class ApiService {
     }
 
     return CareerRoadmap.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+  }
+
+  /// POST /api/v1/interviews/text/questions
+  /// Generates a fresh set of mock-interview questions for [targetRole].
+  /// Stateless server-side — the caller holds the question list.
+  Future<List<String>> generateInterviewQuestions({
+    required String targetRole,
+    String language = 'en',
+  }) async {
+    final response = await _client.post(
+      _uri('/api/v1/interviews/text/questions'),
+      headers: {..._authHeaders(), 'Content-Type': 'application/json'},
+      body: jsonEncode({'target_role': targetRole, 'language': language}),
+    );
+
+    if (response.statusCode != 200) {
+      throw ApiException.fromResponse(response);
+    }
+
+    final data = jsonDecode(response.body) as Map<String, dynamic>;
+    return (data['questions'] as List).cast<String>();
+  }
+
+  /// POST /api/v1/interviews/text/evaluate
+  /// Scores a completed text mock interview from its full Q&A transcript.
+  Future<InterviewEvaluationResult> evaluateInterview({
+    required String targetRole,
+    required List<InterviewAnswer> qaPairs,
+    String language = 'en',
+  }) async {
+    final response = await _client.post(
+      _uri('/api/v1/interviews/text/evaluate'),
+      headers: {..._authHeaders(), 'Content-Type': 'application/json'},
+      body: jsonEncode({
+        'target_role': targetRole,
+        'language': language,
+        'qa_pairs': qaPairs.map((a) => a.toJson()).toList(),
+      }),
+    );
+
+    if (response.statusCode != 200) {
+      throw ApiException.fromResponse(response);
+    }
+
+    return InterviewEvaluationResult.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
   }
 
   /// GET /health — unauthenticated liveness check, useful for a
