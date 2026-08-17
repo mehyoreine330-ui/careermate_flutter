@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "Enregistrer l'offre",
   "jobMatchingUnsaveJob": "Retirer l'offre",
+  "jobMatchingCouldNotSave": "Impossible d'enregistrer cette offre d'emploi. Veuillez réessayer.",
   "candidateApplyFailed": "Impossible d'envoyer votre candidature. Veuillez réessayer.",
   "candidateApplySuccess": "Candidature envoyée !",
 

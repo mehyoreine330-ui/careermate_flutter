@@ -977,6 +977,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Batal Simpan';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Tidak dapat menyimpan pekerjaan ini. Silakan coba lagi.';
+
+  @override
   String get candidateApplyFailed =>
       'Tidak dapat mengirim lamaran Anda. Silakan coba lagi.';
 

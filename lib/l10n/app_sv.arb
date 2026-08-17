@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "Spara jobb",
   "jobMatchingUnsaveJob": "Ta bort sparning",
+  "jobMatchingCouldNotSave": "Det gick inte att spara detta jobb. Försök igen.",
   "candidateApplyFailed": "Din ansökan kunde inte skickas. Försök igen.",
   "candidateApplySuccess": "Ansökan skickad!",
 

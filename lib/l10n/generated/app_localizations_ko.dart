@@ -915,6 +915,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get jobMatchingUnsaveJob => '저장 취소';
 
   @override
+  String get jobMatchingCouldNotSave => '이 채용 공고를 저장할 수 없습니다. 다시 시도해 주세요.';
+
+  @override
   String get candidateApplyFailed => '지원서를 제출할 수 없습니다. 다시 시도해 주세요.';
 
   @override

@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "收藏职位",
   "jobMatchingUnsaveJob": "取消收藏",
+  "jobMatchingCouldNotSave": "无法保存此职位。请重试。",
   "candidateApplyFailed": "无法提交您的申请。请重试。",
   "candidateApplySuccess": "申请已提交！",
 

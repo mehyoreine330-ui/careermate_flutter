@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "Job merken",
   "jobMatchingUnsaveJob": "Job nicht mehr merken",
+  "jobMatchingCouldNotSave": "Dieser Job konnte nicht gespeichert werden. Bitte versuche es erneut.",
   "candidateApplyFailed": "Deine Bewerbung konnte nicht gesendet werden. Bitte versuche es erneut.",
   "candidateApplySuccess": "Bewerbung gesendet!",
 

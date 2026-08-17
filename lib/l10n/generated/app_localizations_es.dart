@@ -978,6 +978,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Quitar de guardados';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'No se pudo guardar este empleo. Inténtalo de nuevo.';
+
+  @override
   String get candidateApplyFailed =>
       'No se pudo enviar tu postulación. Inténtalo de nuevo.';
 

@@ -956,6 +956,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'إلغاء حفظ الوظيفة';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'تعذر حفظ هذه الوظيفة. يرجى المحاولة مرة أخرى.';
+
+  @override
   String get candidateApplyFailed =>
       'تعذّر إرسال طلبك. يرجى المحاولة مرة أخرى.';
 

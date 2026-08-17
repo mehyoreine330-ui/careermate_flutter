@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "채용공고 저장",
   "jobMatchingUnsaveJob": "저장 취소",
+  "jobMatchingCouldNotSave": "이 채용 공고를 저장할 수 없습니다. 다시 시도해 주세요.",
   "candidateApplyFailed": "지원서를 제출할 수 없습니다. 다시 시도해 주세요.",
   "candidateApplySuccess": "지원서가 제출되었습니다!",
 

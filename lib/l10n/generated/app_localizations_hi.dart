@@ -969,6 +969,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'सेव हटाएं';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'यह नौकरी सहेजी नहीं जा सकी। कृपया पुनः प्रयास करें।';
+
+  @override
   String get candidateApplyFailed =>
       'आपका आवेदन सबमिट नहीं किया जा सका। कृपया फिर से कोशिश करें।';
 

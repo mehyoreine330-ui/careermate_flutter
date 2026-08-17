@@ -913,6 +913,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get jobMatchingUnsaveJob => '保存を解除';
 
   @override
+  String get jobMatchingCouldNotSave => 'この求人を保存できませんでした。もう一度お試しください。';
+
+  @override
   String get candidateApplyFailed => '応募を送信できませんでした。もう一度お試しください。';
 
   @override

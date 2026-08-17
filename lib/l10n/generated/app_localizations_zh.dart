@@ -904,6 +904,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get jobMatchingUnsaveJob => '取消收藏';
 
   @override
+  String get jobMatchingCouldNotSave => '无法保存此职位。请重试。';
+
+  @override
   String get candidateApplyFailed => '无法提交您的申请。请重试。';
 
   @override

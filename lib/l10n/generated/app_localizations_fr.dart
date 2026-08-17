@@ -995,6 +995,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Retirer l\'offre';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Impossible d\'enregistrer cette offre d\'emploi. Veuillez réessayer.';
+
+  @override
   String get candidateApplyFailed =>
       'Impossible d\'envoyer votre candidature. Veuillez réessayer.';
 

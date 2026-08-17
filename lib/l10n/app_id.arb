@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "Simpan Pekerjaan",
   "jobMatchingUnsaveJob": "Batal Simpan",
+  "jobMatchingCouldNotSave": "Tidak dapat menyimpan pekerjaan ini. Silakan coba lagi.",
   "candidateApplyFailed": "Tidak dapat mengirim lamaran Anda. Silakan coba lagi.",
   "candidateApplySuccess": "Lamaran terkirim!",
 

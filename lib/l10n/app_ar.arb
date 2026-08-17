@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "حفظ الوظيفة",
   "jobMatchingUnsaveJob": "إلغاء حفظ الوظيفة",
+  "jobMatchingCouldNotSave": "تعذر حفظ هذه الوظيفة. يرجى المحاولة مرة أخرى.",
   "candidateApplyFailed": "تعذّر إرسال طلبك. يرجى المحاولة مرة أخرى.",
   "candidateApplySuccess": "تم إرسال الطلب!",
 

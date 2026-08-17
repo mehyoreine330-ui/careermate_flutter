@@ -978,6 +978,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Прибрати зі збережених';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Не вдалося зберегти цю вакансію. Спробуйте ще раз.';
+
+  @override
   String get candidateApplyFailed =>
       'Не вдалося надіслати ваш відгук. Спробуйте ще раз.';
 

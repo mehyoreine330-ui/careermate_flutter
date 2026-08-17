@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "नौकरी सेव करें",
   "jobMatchingUnsaveJob": "सेव हटाएं",
+  "jobMatchingCouldNotSave": "यह नौकरी सहेजी नहीं जा सकी। कृपया पुनः प्रयास करें।",
   "candidateApplyFailed": "आपका आवेदन सबमिट नहीं किया जा सका। कृपया फिर से कोशिश करें।",
   "candidateApplySuccess": "आवेदन सबमिट हो गया!",
 

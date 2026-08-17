@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "Vacature opslaan",
   "jobMatchingUnsaveJob": "Niet meer opslaan",
+  "jobMatchingCouldNotSave": "Deze vacature kon niet worden opgeslagen. Probeer het opnieuw.",
   "candidateApplyFailed": "Je sollicitatie kon niet worden verzonden. Probeer het opnieuw.",
   "candidateApplySuccess": "Sollicitatie verzonden!",
 

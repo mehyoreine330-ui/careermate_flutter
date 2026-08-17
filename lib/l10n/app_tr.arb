@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "İlanı Kaydet",
   "jobMatchingUnsaveJob": "Kaydı Kaldır",
+  "jobMatchingCouldNotSave": "Bu iş kaydedilemedi. Lütfen tekrar deneyin.",
   "candidateApplyFailed": "Başvurunuz gönderilemedi. Lütfen tekrar deneyin.",
   "candidateApplySuccess": "Başvuru gönderildi!",
 

@@ -519,6 +519,18 @@ class _SaveJobButton extends ConsumerWidget {
     final savedIds = ref.watch(savedJobPostingIdsProvider);
     final saved = savedIds.contains(job.id);
 
+    // Bookmark save/unsave writes straight to Supabase (saved_jobs_provider)
+    // with no return value the button itself renders — without this, a
+    // failed write (RLS denial, network blip) left the icon simply not
+    // changing with zero feedback. Surface it as a snackbar instead.
+    ref.listen(savedJobsControllerProvider, (previous, next) {
+      if (next is AsyncError) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.jobMatchingCouldNotSave)),
+        );
+      }
+    });
+
     return IconGlowButton(
       icon: saved ? Icons.bookmark_rounded : Icons.bookmark_border_rounded,
       tooltip: saved ? l10n.jobMatchingUnsaveJob : l10n.jobMatchingSaveJob,

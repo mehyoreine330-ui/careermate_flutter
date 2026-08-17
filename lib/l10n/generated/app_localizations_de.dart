@@ -978,6 +978,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Job nicht mehr merken';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Dieser Job konnte nicht gespeichert werden. Bitte versuche es erneut.';
+
+  @override
   String get candidateApplyFailed =>
       'Deine Bewerbung konnte nicht gesendet werden. Bitte versuche es erneut.';
 

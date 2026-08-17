@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "Salva offerta",
   "jobMatchingUnsaveJob": "Rimuovi offerta salvata",
+  "jobMatchingCouldNotSave": "Impossibile salvare questo lavoro. Riprova.",
   "candidateApplyFailed": "Impossibile inviare la tua candidatura. Riprova.",
   "candidateApplySuccess": "Candidatura inviata!",
 

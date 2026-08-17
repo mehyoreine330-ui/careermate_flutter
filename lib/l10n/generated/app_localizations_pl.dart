@@ -981,6 +981,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Usuń z zapisanych';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Nie udało się zapisać tej oferty pracy. Spróbuj ponownie.';
+
+  @override
   String get candidateApplyFailed =>
       'Nie udało się wysłać Twojej aplikacji. Spróbuj ponownie.';
 

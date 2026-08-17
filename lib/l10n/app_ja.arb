@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "求人を保存",
   "jobMatchingUnsaveJob": "保存を解除",
+  "jobMatchingCouldNotSave": "この求人を保存できませんでした。もう一度お試しください。",
   "candidateApplyFailed": "応募を送信できませんでした。もう一度お試しください。",
   "candidateApplySuccess": "応募が送信されました！",
 

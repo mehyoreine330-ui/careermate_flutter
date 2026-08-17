@@ -972,6 +972,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Niet meer opslaan';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Deze vacature kon niet worden opgeslagen. Probeer het opnieuw.';
+
+  @override
   String get candidateApplyFailed =>
       'Je sollicitatie kon niet worden verzonden. Probeer het opnieuw.';
 

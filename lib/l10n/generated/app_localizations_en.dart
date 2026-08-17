@@ -955,6 +955,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Unsave job';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Could not save this job. Please try again.';
+
+  @override
   String get candidateApplyFailed =>
       'Could not submit your application. Please try again.';
 

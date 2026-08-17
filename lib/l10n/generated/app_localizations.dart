@@ -1834,6 +1834,12 @@ abstract class AppLocalizations {
   /// **'Unsave job'**
   String get jobMatchingUnsaveJob;
 
+  /// No description provided for @jobMatchingCouldNotSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not save this job. Please try again.'**
+  String get jobMatchingCouldNotSave;
+
   /// No description provided for @candidateApplyFailed.
   ///
   /// In en, this message translates to:

@@ -961,6 +961,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Kaydı Kaldır';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Bu iş kaydedilemedi. Lütfen tekrar deneyin.';
+
+  @override
   String get candidateApplyFailed =>
       'Başvurunuz gönderilemedi. Lütfen tekrar deneyin.';
 

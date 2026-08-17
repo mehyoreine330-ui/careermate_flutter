@@ -251,10 +251,16 @@ class ApiService {
   /// Both Job Matching and Internships score a whole batch of listings in a
   /// single AI call — the slowest requests in the app, and the backend's own
   /// OpenAI client timeout (45s) plus live provider fan-out can approach a
-  /// minute. Without a client-side cap, a genuinely stuck request hangs
-  /// forever with no feedback; this fails fast with a message the screens'
-  /// existing `error is ApiException` branch already knows how to display.
-  static const _recommendationsTimeout = Duration(seconds: 60);
+  /// minute on their own — and on top of that, Render's free tier sleeps
+  /// after 15 min idle and takes 30-60s to wake on the next request. A
+  /// candidate whose first action after a quiet period is opening Job
+  /// Matching (the most backend-heavy screen: live job fetch + one AI
+  /// scoring call) can realistically see cold-start + fetch + scoring
+  /// stack up close to 90s. 120s gives real headroom for that worst case
+  /// while still failing fast (with a message the screens' existing
+  /// `error is ApiException` branch already knows how to display) if a
+  /// request is genuinely stuck rather than just slow.
+  static const _recommendationsTimeout = Duration(seconds: 120);
 
   Never _throwTimeout() => throw ApiException(
         lookupAppLocalizations(currentAppLocale).commonRequestTimedOut,

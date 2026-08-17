@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "Zapisz ofertę",
   "jobMatchingUnsaveJob": "Usuń z zapisanych",
+  "jobMatchingCouldNotSave": "Nie udało się zapisać tej oferty pracy. Spróbuj ponownie.",
   "candidateApplyFailed": "Nie udało się wysłać Twojej aplikacji. Spróbuj ponownie.",
   "candidateApplySuccess": "Aplikacja wysłana!",
 

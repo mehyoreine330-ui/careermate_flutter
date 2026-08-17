@@ -979,6 +979,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Remover vaga salva';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Não foi possível salvar esta vaga. Tente novamente.';
+
+  @override
   String get candidateApplyFailed =>
       'Não foi possível enviar sua candidatura. Tente novamente.';
 

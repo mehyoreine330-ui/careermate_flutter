@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "Зберегти вакансію",
   "jobMatchingUnsaveJob": "Прибрати зі збережених",
+  "jobMatchingCouldNotSave": "Не вдалося зберегти цю вакансію. Спробуйте ще раз.",
   "candidateApplyFailed": "Не вдалося надіслати ваш відгук. Спробуйте ще раз.",
   "candidateApplySuccess": "Відгук надіслано!",
 

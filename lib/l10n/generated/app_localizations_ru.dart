@@ -977,6 +977,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Убрать из сохранённых';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Не удалось сохранить эту вакансию. Попробуйте ещё раз.';
+
+  @override
   String get candidateApplyFailed =>
       'Не удалось отправить ваш отклик. Попробуйте ещё раз.';
 

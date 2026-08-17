@@ -966,6 +966,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get jobMatchingUnsaveJob => 'Ta bort sparning';
 
   @override
+  String get jobMatchingCouldNotSave =>
+      'Det gick inte att spara detta jobb. Försök igen.';
+
+  @override
   String get candidateApplyFailed =>
       'Din ansökan kunde inte skickas. Försök igen.';
 

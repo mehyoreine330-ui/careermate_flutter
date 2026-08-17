@@ -318,6 +318,7 @@
   "@jobMatchingApplyPlaceholder": { "placeholders": { "title": { "type": "String" } } },
   "jobMatchingSaveJob": "Сохранить вакансию",
   "jobMatchingUnsaveJob": "Убрать из сохранённых",
+  "jobMatchingCouldNotSave": "Не удалось сохранить эту вакансию. Попробуйте ещё раз.",
   "candidateApplyFailed": "Не удалось отправить ваш отклик. Попробуйте ещё раз.",
   "candidateApplySuccess": "Отклик отправлен!",
 
